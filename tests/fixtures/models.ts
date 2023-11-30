@@ -1,8 +1,11 @@
 export interface IProduct {
-  qty: number,
   name: string,
   description: string,
-  value: number
+  price: number
+}
+export interface ICartProduct {
+  qty: number,
+  product: IProduct
 }
 
 export interface ILogin {

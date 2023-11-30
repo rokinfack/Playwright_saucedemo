@@ -1,5 +1,5 @@
 import { Locator, Page } from "playwright-core";
-import { IProduct } from "../fixtures/models";
+import { ICartProduct, IProduct } from "../fixtures/models";
 import { expect } from "playwright/test";
 
 export class CartItemComponent {
@@ -10,15 +10,15 @@ export class CartItemComponent {
   readonly locatorProductPrice: Locator;
   readonly locatorRemoveButton: Locator;
 
-  constructor(page: Page, product: IProduct){
+  constructor(page: Page, cart: ICartProduct){
     this.page = page;
 
-    this.locatorProductTitle = this.page.getByRole('link', {name: `${product.name}`});
+    this.locatorProductTitle = this.page.getByRole('link', {name: `${cart.product.name}`});
     
-    const container = this.page.locator('.cart_item', {hasText: `${product.name}`});
-    this.locatorProductDescription = container.getByText(product.description);
-    this.locatorQuantity = container.locator('.cart_quantity', {hasText: `${product.qty}`});
-    this.locatorProductPrice = container.locator('.inventory_item_price', {hasText: `$${product.value}`});
+    const container = this.page.locator('.cart_item', {hasText: `${cart.product.name}`});
+    this.locatorProductDescription = container.getByText(cart.product.description);
+    this.locatorQuantity = container.locator('.cart_quantity', {hasText: `${cart.qty}`});
+    this.locatorProductPrice = container.locator('.inventory_item_price', {hasText: `$${cart.product.price}`});
     this.locatorRemoveButton = container.getByRole('button', { name: 'Remove'});
 
   }

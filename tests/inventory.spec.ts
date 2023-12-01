@@ -1,7 +1,7 @@
 import test from "@playwright/test";
 import { InventoryPage } from "./pages/InventoryPage";
 import { InventoryItemPage } from "./pages/InventoryItemPage";
-import { SortOptions } from "./fixtures/models";
+import { IProduct, SortOptions } from "./fixtures/models";
 
 let inventoryPage: InventoryPage;
 
@@ -62,12 +62,12 @@ test.describe('Inventory features', () => {
   test('Should open product details from image', async ({page}) => {
     const index = Math.floor(Math.random()*inventoryPage.items.length);
     await inventoryPage.items[index].openDetailsClickingOnPhoto();
-    await new InventoryItemPage(page).toBe();
+    await new InventoryItemPage(page, {} as IProduct).toBe();
   });
 
   test('Should open product details from title', async ({page}) => {
     const index = Math.floor(Math.random()*inventoryPage.items.length);
     await inventoryPage.items[index].openDetailsClickingOnTitle();
-    await new InventoryItemPage(page).toBe();
+    await new InventoryItemPage(page, {} as IProduct).toBe();
   });
 });

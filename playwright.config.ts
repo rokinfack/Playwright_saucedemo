@@ -1,10 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
+import path from 'path';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
+export const STORAGE_STATE = path.join(__dirname, 'playwright/.auth/user.json')
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -33,8 +35,16 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'setup',
+      testMatch: '**/*.setup.ts'
+    },
+    {
+      name: 'chrome',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE
+      },
+      dependencies: ['setup'],
     },
 
     {

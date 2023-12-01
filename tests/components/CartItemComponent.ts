@@ -23,23 +23,23 @@ export class CartItemComponent {
 
   }
 
-  containsElements = async () => {
-    expect(this.locatorQuantity).toBeVisible();
-    expect(this.locatorProductTitle).toBeVisible();
-    expect(this.locatorProductDescription).toBeVisible();
-    expect(this.locatorProductPrice).toBeVisible();
-    expect(this.locatorRemoveButton).toBeVisible();
+  validateDefaultUX = async () => {
+    await expect(this.locatorQuantity).toBeVisible();
+    await expect(this.locatorProductTitle).toBeVisible();
+    await expect(this.locatorProductDescription).toBeVisible();
+    await expect(this.locatorProductPrice).toBeVisible();
+    await expect(this.locatorRemoveButton).toBeVisible();
   }
 
   remove = async () => {
-    this.locatorRemoveButton.click();
+    await this.locatorRemoveButton.click();
   }
 
   isRemoved = async () => {
-    expect(this.locatorQuantity).not.toBeVisible();
-    expect(this.locatorProductTitle).not.toBeVisible();
-    expect(this.locatorProductDescription).not.toBeVisible();
-    expect(this.locatorProductPrice).not.toBeVisible();
-    expect(this.locatorRemoveButton).not.toBeVisible();
+    await expect(this.locatorQuantity).not.toBeVisible();
+    await expect(this.locatorProductTitle).not.toBeVisible();
+    await expect(this.locatorProductDescription).not.toBeVisible();
+    await expect(this.locatorProductPrice).not.toBeVisible();
+    await expect(this.locatorRemoveButton).not.toBeVisible();
   }
 }

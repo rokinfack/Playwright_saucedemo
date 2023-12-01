@@ -12,3 +12,10 @@ export interface ILogin {
   username: string,
   password: string
 }
+
+export enum SortOptions {
+  AZ = "az",
+  ZA = "za",
+  LoHi = "lohi",
+  HiLo = "hilo"
+}

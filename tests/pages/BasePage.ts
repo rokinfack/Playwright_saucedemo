@@ -1,7 +1,7 @@
 import { Page } from "playwright-core";
 import { expect } from "playwright/test";
 
-export class BasePage {
+export abstract class BasePage {
   readonly page: Page;
   readonly url: string;
 
@@ -11,11 +11,15 @@ export class BasePage {
   }
 
   toBe = async () => {
-    await expect(this.page).toHaveURL(this.url);
+    const regex = new RegExp(`${this.url}`)
+    await expect(this.page).toHaveURL(regex);
   }
 
   visit = async () => {
     await this.page.goto(this.url);
     await this.page.waitForLoadState('networkidle')
   }
+
+  abstract validateDefaultUX();
+
 }

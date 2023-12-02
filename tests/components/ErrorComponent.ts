@@ -5,11 +5,11 @@ export class ErrorComponent {
   readonly page: Page;
   readonly locatorMessage: Locator;
   readonly locatorDismissButton: Locator;
-  readonly errorMessagePrefix = 'Epic sadface:';
+  errorMessagePrefix: string;
 
-  constructor(page: Page){
+  constructor(page: Page, errorMessagePrefix = 'Epic sadface: '){
     this.page = page;
-
+    this.errorMessagePrefix = errorMessagePrefix;
     this.locatorMessage = this.page.locator('[data-test=error]');
     this.locatorDismissButton = this.locatorMessage.getByRole('button');
   }

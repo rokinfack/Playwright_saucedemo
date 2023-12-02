@@ -8,9 +8,9 @@ export abstract class FormComponent {
   readonly locatorSubmitButton: Locator;
   readonly errorComponent: ErrorComponent;
 
-  constructor(page: Page){
+  constructor(page: Page, errorMessagePrefix = 'Epic sadface:'){
     this.page = page;
-    this.errorComponent = new ErrorComponent(this.page);
+    this.errorComponent = new ErrorComponent(this.page, errorMessagePrefix);
 
     this.locatorForm = this.page.locator('form');
     this.locatorSubmitButton = this.locatorForm.locator('input[type=submit]');

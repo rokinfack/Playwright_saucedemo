@@ -5,7 +5,7 @@ import { ProductItemComponent } from "../components/ProductItemComponent";
 import data from '../fixtures/data/products.json';
 import { FooterComponent } from "../components/FooterComponent";
 import { HeaderComponent } from "../components/HeaderComponent";
-import { IProduct, SortOptions } from "../fixtures/models";
+import { SortOptions } from "../fixtures/models";
 
 export class InventoryPage extends BasePage{
   

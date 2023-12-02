@@ -13,6 +13,11 @@ export interface ILogin {
   password: string
 }
 
+export interface IUser {
+  firstName: string,
+  lastName: string,
+  zipCode: string
+}
 export enum SortOptions {
   AZ = "az",
   ZA = "za",

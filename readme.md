@@ -1,10 +1,10 @@
 # Playwright E2E Testing Project for saucedemo.com
 
-Welcome to the E2E Testing Project for [saucedemo.com](https://www.saucedemo.com/) utilizing Playwright and TypeScript!
+Hello! This is my E2E testing project for [soucedemo.com](soucedemo.com) using Playwright and TypeScript! I developed this project as part of my learning journey in test automation.
 
 ## Overview
 
-This E2E testing project employs Playwright, a robust Node library designed for browser automation, coupled with TypeScript to ensure a modern and statically-typed development experience. As a QA professional, this project focuses on maintaining the integrity and reliability of the SouceDemo website through comprehensive end-to-end testing.
+This E2E testing project employs Playwright, a robust Node library designed for browser automation, coupled with TypeScript to ensure a modern and statically-typed development experience.
 
 ## Technologies Used
 
@@ -16,8 +16,8 @@ This E2E testing project employs Playwright, a robust Node library designed for 
 
 The project adopts a structured approach to maintainability and scalability. Here's an overview of the project's directory structure:
 
-```
-playwright-e2e-soucedemo/
+```bash
+saucedemo/
 ├── tests/
 │   ├── components/
 │   │   ├── FooterComponent.ts
@@ -32,24 +32,27 @@ playwright-e2e-soucedemo/
 │   ├── pages/
 │   │   ├── LoginPage.ts
 │   │   └── ...
-│   ├── auth.setup.ts
-│   └── login.spec.ts
-│   └── ...
+│   ├── e2e/
+│   │   └── login.spec.ts
+│   │   └── ... 
+│   ├── visual/
+│   │   └── visual.spec.ts
+│   └── auth.setup.ts
 ├── playwright.config.js
 ├── node_modules/
 ├── package.json
 ├── tsconfig.json
 └── ...
 ```
+## Types of Tests
 
-### Key Directories and Files:
+### 1. End-to-End (E2E) Tests
 
-- tests/components/: Reusable components like FooterComponent.ts.
-- tests/fixtures/: Data models (model.ts) and test data in the data/ directory.
-- tests/pages/: Page objects such as LoginPage.ts.
-- tests/auth.setup.ts: Configuration for maintaining the logged-in state.
-- tests/*.spec.ts: Test specifications.
-- playwright.config.js: Configuration file for the Playwright test environment.
+E2E tests, located in `e2e/`, aim to verify the complete functionality of the application. They cover scenarios such as user authentication, navigation, and interactions with different pages.
+
+### 2. Visual Snapshot Tests
+
+Visual snapshot tests, in `visual/`, focus on ensuring visual consistency across different test runs. They use Playwright's screenshot capabilities to compare and verify changes in the interface.
 
 ## Page Objects and Componentization
 
@@ -58,7 +61,7 @@ The project embraces the Page Object pattern to encapsulate interactions with va
 Example of a Page Object (`LoginPage.ts`):
 
 ```typescript
-export class LoginPage {
+export class LoginPage extends BasePage {
     // Implementation of page interactions
 }
 ```
@@ -69,14 +72,6 @@ The project also incorporates a `components/` directory to house reusable compon
 
 Data used in tests is organized under the `fixtures/` directory. This includes a `model.ts` file for defining data models and a `data/` directory housing various JSON files containing test data.
 
-Example of a data file (`cart.json`):
-
-```json
-{
-  "item": "Sample Product",
-  "quantity": 2
-}
-```
 
 ## State Maintenance
 
@@ -84,28 +79,25 @@ To maintain the logged-in state of the website and access protected pages, the f
 
 ## Test Execution
 
-1. Open `auth.setup.ts` and provide SouceDemo credentials.
-2. Navigate to the project directory:
+1. Navigate to the project directory:
 
    ```bash
    cd saucedemo
    ```
 
-3. Install dependencies:
+1. Install dependencies:
 
    ```bash
    npm install
    ```
 
-4. Run the tests:
+1. Run the tests:
 
    ```bash
    npx playwright test
    ```
 
 ## HTML reporter
-
-HTML reporter
 
 HTML reporter produces a self-contained folder that contains report for the test run that can be served as a web page.
 
@@ -129,4 +121,4 @@ The `playwright.config.js` file configures the Playwright test environment. It s
 
 ## Contribution
 
-Contributions are welcomed! Please feel free to open issues or submit pull requests. Your feedback and contributions are invaluable in ensuring the effectiveness and robustness of our E2E testing efforts.
+I'm learning, so if you find anything interesting or peculiar, I'd love to discuss! Feel free to open issues or propose improvements.

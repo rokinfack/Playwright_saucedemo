@@ -19,6 +19,14 @@ export class MenuComponent {
     this.locatorResetLink = this.locatorMenuNav.getByRole('link', { name: 'Reset App State' });
     this.locatorLogoutLink = this.locatorMenuNav.getByRole('link', { name: 'Logout' });
   }
+  validateDefaultUX = async () => {
+    await expect(this.locatorMenuNav).toBeVisible();
+    await expect(this.locatorCloseMenuButton).toBeVisible();
+    await expect(this.locatorAllItemsLink).toBeVisible();
+    await expect(this.locatorAboutLink).toBeVisible();
+    await expect(this.locatorResetLink).toBeVisible();
+    await expect(this.locatorLogoutLink).toBeVisible();
+  };
 
   visitItems = async () => {
     await this.locatorAllItemsLink.click();
@@ -28,9 +36,10 @@ export class MenuComponent {
   visitAbout = async () => {
     await this.locatorAboutLink.click();
     await this.page.waitForLoadState('networkidle');
+    await expect(this.page).toHaveURL('https://saucelabs.com/');    
   }
 
-  visitReset = async () => {
+  reset = async () => {
     await this.locatorResetLink.click();
   }
 

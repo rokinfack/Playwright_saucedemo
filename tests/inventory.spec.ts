@@ -1,4 +1,4 @@
-import test from "@playwright/test";
+import test, { expect } from "@playwright/test";
 import { InventoryPage } from "./pages/InventoryPage";
 import { InventoryItemPage } from "./pages/InventoryItemPage";
 import { IProduct, SortOptions } from "./fixtures/models";
@@ -72,3 +72,48 @@ test.describe('Inventory features', () => {
     await new InventoryItemPage(page, data.az[0]).toBe();
   });
 });
+
+test.describe('Menu, Header, Footer', () => {
+  test('Should have default UX', async () => {
+    await inventoryPage.header.validateDefaultUX();
+    await inventoryPage.footer.validateDefaultUX();
+    await inventoryPage.header.openMenu();
+    await inventoryPage.header.menu.validateDefaultUX();
+  });
+
+  test.describe('Menu features', () => {
+    test('Should open and close menu', async () => {
+      await inventoryPage.header.menu.isClosed();
+      await inventoryPage.header.openMenu();
+      await inventoryPage.header.menu.isOpened();
+      await inventoryPage.header.menu.close();
+      await inventoryPage.header.menu.isClosed();
+    });
+
+    test('Should reset app state', async () => {
+      await inventoryPage.items[0].addToCart();
+      await inventoryPage.header.cartCounter(1);
+      await inventoryPage.header.openMenu();
+      await inventoryPage.header.menu.reset();
+      await inventoryPage.header.cartCounter(0);
+    })
+
+    test('Should visit about', async () => {
+      await inventoryPage.header.openMenu();
+      await inventoryPage.header.menu.visitAbout();
+    })
+
+    test('Should visit All Items', async () => {
+      await inventoryPage.header.visitCart();
+      await inventoryPage.header.openMenu();
+      await inventoryPage.header.menu.visitItems();
+      await inventoryPage.toBe();
+    })
+
+    test('Should logout', async ({page}) => {
+      await inventoryPage.header.openMenu();
+      await inventoryPage.header.menu.visitLogout();
+      await expect(page).toHaveURL('/');
+    })
+  })
+})

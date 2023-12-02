@@ -4,6 +4,8 @@ import data from './fixtures/data/users.json';
 import { InventoryPage } from './pages/InventoryPage';
 let loginPage: LoginPage;
 
+test.use({ storageState: { cookies: [], origins: [] } });
+
 test.beforeEach(async ({page}) => {
   loginPage = new LoginPage(page);
   await loginPage.visit();
@@ -25,6 +27,30 @@ test.describe('login UX', () => {
 test.describe('login feature', () => {
   test('should login', async ({ page }) => {
     await loginPage.formComponent.fill(data.success);
+    await loginPage.formComponent.submit()
+    await new InventoryPage(page).toBe();
+  });
+
+  test('should login with visual user', async ({ page }) => {
+    await loginPage.formComponent.fill(data.visual_user);
+    await loginPage.formComponent.submit()
+    await new InventoryPage(page).toBe();
+  });
+
+  test('should login with error user', async ({ page }) => {
+    await loginPage.formComponent.fill(data.error_user);
+    await loginPage.formComponent.submit()
+    await new InventoryPage(page).toBe();
+  });
+
+  test('should login with problem user', async ({ page }) => {
+    await loginPage.formComponent.fill(data.problem_user);
+    await loginPage.formComponent.submit()
+    await new InventoryPage(page).toBe();
+  });
+
+  test('should login with performance user', async ({ page }) => {
+    await loginPage.formComponent.fill(data.performance_user);
     await loginPage.formComponent.submit()
     await new InventoryPage(page).toBe();
   });

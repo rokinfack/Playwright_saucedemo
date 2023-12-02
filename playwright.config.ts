@@ -6,7 +6,11 @@ import path from 'path';
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
-export const STORAGE_STATE = path.join(__dirname, 'playwright/.auth/user.json')
+export const STORAGE_STATE_DEFAULT_USER = path.join(__dirname, 'playwright/.auth/user.json');
+export const STORAGE_STATE_PROBLEM_USER = path.join(__dirname, 'playwright/.auth/problemUser.json');
+export const STORAGE_STATE_VISUAL_USER = path.join(__dirname, 'playwright/.auth/visualUser.json');
+export const STORAGE_STATE_ERROR_USER = path.join(__dirname, 'playwright/.auth/errorUser.json');
+export const STORAGE_STATE_PERFORMANCE_USER = path.join(__dirname, 'playwright/.auth/performanceUser.json');
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -39,23 +43,75 @@ export default defineConfig({
       testMatch: '**/*.setup.ts'
     },
     {
-      name: 'chrome',
+      name: 'e2e login',
+      testMatch: 'login.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
-        storageState: STORAGE_STATE
+      }
+    },
+    {
+      name: 'e2e standard user',
+      testIgnore: 'login.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE_DEFAULT_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'e2e problem user',
+      testIgnore: 'login.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE_PROBLEM_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'e2e visual user',
+      testIgnore: 'login.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE_VISUAL_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'e2e error user',
+      testIgnore: 'login.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE_ERROR_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'e2e performance user',
+      testIgnore: 'login.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE_PERFORMANCE_USER
       },
       dependencies: ['setup'],
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { 
+    //     ...devices['Desktop Firefox'], 
+    //     storageState: STORAGE_STATE_DEFAULT_USER
+    //   },
+    //   dependencies: ['setup'],
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { 
+    //     ...devices['Desktop Safari'],
+    //     storageState: STORAGE_STATE_DEFAULT_USER
+    //    },
+    //   dependencies: ['setup'],
+    // },
 
     /* Test against mobile viewports. */
     // {

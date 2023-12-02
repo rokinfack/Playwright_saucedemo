@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { InventoryPage } from './pages/InventoryPage';
-import { CartPage } from './pages/CartPage';
-import data from './fixtures/data/cart.json';
-import { CheckoutStepOnePage } from './pages/CheckoutStepOnePage';
+import { InventoryPage } from '../pages/InventoryPage';
+import { CartPage } from '../pages/CartPage';
+import data from '../fixtures/data/cart.json';
+import { CheckoutStepOnePage } from '../pages/CheckoutStepOnePage';
 
 let inventoryPage: InventoryPage;
 let cartPage: CartPage;

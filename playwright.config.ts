@@ -51,7 +51,8 @@ export default defineConfig({
     },
     {
       name: 'e2e standard user',
-      testIgnore: 'login.spec.ts',
+      testMatch: '**/e2e/*.spec.ts',
+      testIgnore: '**/e2e/login.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
         storageState: STORAGE_STATE_DEFAULT_USER
@@ -60,7 +61,8 @@ export default defineConfig({
     },
     {
       name: 'e2e problem user',
-      testIgnore: 'login.spec.ts',
+      testMatch: '**/e2e/*.spec.ts',
+      testIgnore: '**/e2e/login.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
         storageState: STORAGE_STATE_PROBLEM_USER
@@ -69,7 +71,8 @@ export default defineConfig({
     },
     {
       name: 'e2e visual user',
-      testIgnore: 'login.spec.ts',
+      testMatch: '**/e2e/*.spec.ts',
+      testIgnore: '**/e2e/login.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
         storageState: STORAGE_STATE_VISUAL_USER
@@ -78,7 +81,8 @@ export default defineConfig({
     },
     {
       name: 'e2e error user',
-      testIgnore: 'login.spec.ts',
+      testMatch: '**/e2e/*.spec.ts',
+      testIgnore: '**/e2e/login.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
         storageState: STORAGE_STATE_ERROR_USER
@@ -87,12 +91,20 @@ export default defineConfig({
     },
     {
       name: 'e2e performance user',
-      testIgnore: 'login.spec.ts',
+      testMatch: '**/e2e/*.spec.ts',
+      testIgnore: '**/e2e/login.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
         storageState: STORAGE_STATE_PERFORMANCE_USER
       },
       dependencies: ['setup'],
+    },
+    {
+      name: 'visual',
+      testMatch: '**/visual/*.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+      }
     },
 
     // {

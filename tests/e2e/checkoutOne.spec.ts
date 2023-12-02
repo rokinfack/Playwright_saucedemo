@@ -1,11 +1,11 @@
 import test from "@playwright/test";
-import { CartPage } from "./pages/CartPage";
-import { InventoryPage } from "./pages/InventoryPage";
-import data from './fixtures/data/cart.json';
-import dataCheckout from './fixtures/data/checkout.json';
-import { CheckoutStepOnePage } from "./pages/CheckoutStepOnePage";
-import { CheckoutStepTwoPage } from "./pages/CheckoutStepTwoPage";
-import { CheckoutCompletePage } from "./pages/CheckoutCompletePage";
+import { CartPage } from "../pages/CartPage";
+import { InventoryPage } from "../pages/InventoryPage";
+import data from '../fixtures/data/cart.json';
+import dataCheckout from '../fixtures/data/checkout.json';
+import { CheckoutStepOnePage } from "../pages/CheckoutStepOnePage";
+import { CheckoutStepTwoPage } from "../pages/CheckoutStepTwoPage";
+import { CheckoutCompletePage } from "../pages/CheckoutCompletePage";
 
 let inventoryPage: InventoryPage;
 let cartPage: CartPage;

@@ -1,8 +1,8 @@
 import test, { expect } from "@playwright/test";
-import { InventoryPage } from "./pages/InventoryPage";
-import { InventoryItemPage } from "./pages/InventoryItemPage";
-import { IProduct, SortOptions } from "./fixtures/models";
-import data from './fixtures/data/products.json';
+import { InventoryPage } from "../pages/InventoryPage";
+import { InventoryItemPage } from "../pages/InventoryItemPage";
+import { IProduct, SortOptions } from "../fixtures/models";
+import data from '../fixtures/data/products.json';
 
 let inventoryPage: InventoryPage;
 

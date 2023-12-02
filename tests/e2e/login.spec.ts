@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
-import { LoginPage } from './pages/LoginPage';
-import data from './fixtures/data/users.json';
-import { InventoryPage } from './pages/InventoryPage';
+import { LoginPage } from '../pages/LoginPage';
+import data from '../fixtures/data/users.json';
+import { InventoryPage } from '../pages/InventoryPage';
 let loginPage: LoginPage;
 
 test.use({ storageState: { cookies: [], origins: [] } });

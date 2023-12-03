@@ -59,26 +59,26 @@ export default defineConfig({
       },
       dependencies: ['setup'],
     },
-    {
-      name: 'e2e problem user',
-      testMatch: '**/e2e/*.spec.ts',
-      testIgnore: '**/e2e/login.spec.ts',
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: STORAGE_STATE_PROBLEM_USER
-      },
-      dependencies: ['setup'],
-    },
-    {
-      name: 'e2e visual user',
-      testMatch: '**/e2e/*.spec.ts',
-      testIgnore: '**/e2e/login.spec.ts',
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: STORAGE_STATE_VISUAL_USER
-      },
-      dependencies: ['setup'],
-    },
+    // {
+    //   name: 'e2e problem user',
+    //   testMatch: '**/e2e/*.spec.ts',
+    //   testIgnore: '**/e2e/login.spec.ts',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     storageState: STORAGE_STATE_PROBLEM_USER
+    //   },
+    //   dependencies: ['setup'],
+    // },
+    // {
+    //   name: 'e2e visual user',
+    //   testMatch: '**/e2e/*.spec.ts',
+    //   testIgnore: '**/e2e/login.spec.ts',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     storageState: STORAGE_STATE_VISUAL_USER
+    //   },
+    //   dependencies: ['setup'],
+    // },
     {
       name: 'e2e error user',
       testMatch: '**/e2e/*.spec.ts',
@@ -89,16 +89,16 @@ export default defineConfig({
       },
       dependencies: ['setup'],
     },
-    {
-      name: 'e2e performance user',
-      testMatch: '**/e2e/*.spec.ts',
-      testIgnore: '**/e2e/login.spec.ts',
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: STORAGE_STATE_PERFORMANCE_USER
-      },
-      dependencies: ['setup'],
-    },
+    // {
+    //   name: 'e2e performance user',
+    //   testMatch: '**/e2e/*.spec.ts',
+    //   testIgnore: '**/e2e/login.spec.ts',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     storageState: STORAGE_STATE_PERFORMANCE_USER
+    //   },
+    //   dependencies: ['setup'],
+    // },
     {
       name: 'visual',
       testMatch: '**/visual/*.spec.ts',

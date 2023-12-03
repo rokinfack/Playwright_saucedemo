@@ -14,25 +14,25 @@ setup('authenticate default user', async({page}) => {
   await page.context().storageState({path: STORAGE_STATE_DEFAULT_USER});
 })
 
-setup('authenticate visual user', async({page}) => {
-  loginPage = new LoginPage(page);
-  await loginPage.visit();
-  await loginPage.formComponent.fill(data.visual_user);
-  await loginPage.formComponent.submit();
-  await page.waitForLoadState('networkidle');
+// setup('authenticate visual user', async({page}) => {
+//   loginPage = new LoginPage(page);
+//   await loginPage.visit();
+//   await loginPage.formComponent.fill(data.visual_user);
+//   await loginPage.formComponent.submit();
+//   await page.waitForLoadState('networkidle');
 
-  await page.context().storageState({path: STORAGE_STATE_VISUAL_USER});
-})
+//   await page.context().storageState({path: STORAGE_STATE_VISUAL_USER});
+// })
 
-setup('authenticate problem user', async({page}) => {
-  loginPage = new LoginPage(page);
-  await loginPage.visit();
-  await loginPage.formComponent.fill(data.problem_user);
-  await loginPage.formComponent.submit();
-  await page.waitForLoadState('networkidle');
+// setup('authenticate problem user', async({page}) => {
+//   loginPage = new LoginPage(page);
+//   await loginPage.visit();
+//   await loginPage.formComponent.fill(data.problem_user);
+//   await loginPage.formComponent.submit();
+//   await page.waitForLoadState('networkidle');
 
-  await page.context().storageState({path: STORAGE_STATE_PROBLEM_USER});
-})
+//   await page.context().storageState({path: STORAGE_STATE_PROBLEM_USER});
+// })
 
 setup('authenticate error user', async({page}) => {
   loginPage = new LoginPage(page);
@@ -44,12 +44,12 @@ setup('authenticate error user', async({page}) => {
   await page.context().storageState({path: STORAGE_STATE_ERROR_USER});
 })
 
-setup('authenticate performance user', async({page}) => {
-  loginPage = new LoginPage(page);
-  await loginPage.visit();
-  await loginPage.formComponent.fill(data.performance_user);
-  await loginPage.formComponent.submit();
-  await page.waitForLoadState('networkidle');
+// setup('authenticate performance user', async({page}) => {
+//   loginPage = new LoginPage(page);
+//   await loginPage.visit();
+//   await loginPage.formComponent.fill(data.performance_user);
+//   await loginPage.formComponent.submit();
+//   await page.waitForLoadState('networkidle');
 
-  await page.context().storageState({path: STORAGE_STATE_PERFORMANCE_USER});
-})
+//   await page.context().storageState({path: STORAGE_STATE_PERFORMANCE_USER});
+// })

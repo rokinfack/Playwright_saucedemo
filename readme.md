@@ -1,10 +1,7 @@
 # Playwright E2E Testing Project for saucedemo.com
 
 Hello! This is my E2E testing project for [soucedemo.com](soucedemo.com) using Playwright and TypeScript! I developed this project as part of my learning journey in test automation.
-
-## Overview
-
-This E2E testing project employs Playwright, a robust Node library designed for browser automation, coupled with TypeScript to ensure a modern and statically-typed development experience.
+Check the [test report](ecureuill.github.io/saucedemo-playwright)
 
 ## Technologies Used
 

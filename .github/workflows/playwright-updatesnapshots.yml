@@ -21,7 +21,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Update snapshots
       run: npx playwright test --grep "@create-snapshots" --update-snapshots
-    - uses: stefanzweifel/git-auto-commit-action@v5
+    - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: "[CI] Update Snapshots"
         branch: main

@@ -5,6 +5,11 @@ on:
     tags-ignore: [ 'update-snapshots' ]
   pull_request:
     branches: [ main ]
+  workflow_run:
+    workflows: [Playwright Update Snapshots]
+    types:
+      - completed
+
 # Give the workflow permission to deploy the Pages site
 permissions:
   contents: read

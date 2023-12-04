@@ -2,6 +2,7 @@ name: Playwright Tests
 on:
   push:
     branches: [ main ]
+    tags-ignore: [ 'update-snapshots' ]
   pull_request:
     branches: [ main ]
 # Give the workflow permission to deploy the Pages site

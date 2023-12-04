@@ -1,0 +1,26 @@
+name: Playwright Update Snapshots
+on:
+  push:
+    tags: [ 'update-snapshots' ]
+# Give the workflow permission to deploy the Pages site
+permissions:
+  contents: write
+
+jobs:
+  updatesnapshots:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Update snapshots
+      run: npx playwright test --grep "@create-snapshots" --update-snapshots
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "[CI] Update Snapshots"

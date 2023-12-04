@@ -33,7 +33,7 @@ test.beforeEach(async ({page}) => {
 
 test.describe.serial('visual test', ()=>{
 
-  test('Should pass with standard user', async ({page}) => {
+  test('Should pass with standard user @create-snapshots', async ({page}) => {
     await visualTest(page, user.success);
   })
 

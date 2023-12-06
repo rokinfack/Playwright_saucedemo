@@ -1,12 +1,12 @@
 # Playwright E2E Testing Project for saucedemo.com
 
-Hello! This is my E2E testing project for [soucedemo.com](soucedemo.com) using Playwright and TypeScript! I developed this project as part of my learning journey in test automation.
+Hello! This is my E2E testing project for [saucedemo.com](www.saucedemo.com) using Playwright and TypeScript! I developed this project as part of my learning journey in test automation.
 
 The workflow, defined in the `.github/workflows/playwright.yml` file, executes Playwright tests on specified browsers and operating systems. After the test execution, Playwright generates a comprehensive report detailing both passed and failed scenarios. The GitHub Actions workflow is set up to automatically publish this Playwright test report to GitHub Pages.
 
 This integration ensures that the latest Playwright test results are readily available, providing transparency and visibility into the testing process.
 
-The generated report, showcasing insights into the results of the Playwright tests, is accessible at [ecureuill.github.io/saucedemo-playwright](ecureuill.github.io/saucedemo-playwright).
+The generated report, showcasing insights into the results of the Playwright tests, is accessible at [ecureuill.github.io/saucedemo-playwright](http://ecureuill.github.io/saucedemo-playwright).
 
 ## Technologies Used
 

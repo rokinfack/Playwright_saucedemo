@@ -35,7 +35,7 @@ export class CartPage extends BasePage{
     this.locatorCheckoutButton = this.page.getByRole('button', { name: 'Checkout'});
   }
 
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorYourCart).toBeVisible();
     await expect(this.locatorQty).toBeVisible();
     await expect(this.locatorDescription).toBeVisible();
@@ -47,7 +47,7 @@ export class CartPage extends BasePage{
     }
   }
 
-  validateEmptyUX = async () => {
+  validateEmptyLayout = async () => {
     await expect(this.locatorYourCart).toBeVisible();
     await expect(this.locatorQty).toBeVisible();
     await expect(this.locatorDescription).toBeVisible();

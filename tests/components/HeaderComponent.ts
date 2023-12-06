@@ -19,7 +19,7 @@ export class HeaderComponent {
     this.locatorMenuButton = this.page.getByRole('button', { name: 'Open Menu' });
   }
 
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorHeading).toBeVisible();
     await expect(this.locatorCartLink).toBeVisible();
     await expect(this.locatorMenuButton).toBeVisible();

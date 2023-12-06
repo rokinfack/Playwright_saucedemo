@@ -29,7 +29,7 @@ export abstract class FormComponent {
    *    <svg class="error_icon"/>
    *  ```
    */
-  async validateErrorUX(){
+  async validateErrorLayout(){
     await expect(this.locatorForm).toBeVisible();
     await expect(this.locatorForm.locator('input:not([type=submit]).error')).not.toHaveCount(0);
     await expect(this.locatorForm.locator('svg.error_icon')).not.toHaveCount(0);
@@ -41,12 +41,20 @@ export abstract class FormComponent {
   /**
    * When form is valid, no input field should have error styles not error icon
    */
-  async validateDefaultUx() {
+  async validateDefaultLayout() {
     await expect(this.locatorForm).toBeVisible();
     await expect(this.locatorForm.locator('input:not([type=submit]).error')).toHaveCount(0);
     await expect(this.locatorForm.locator('svg.error_icon')).toHaveCount(0);
     await this.errorComponent.isNotVisible();
     await expect(this.locatorSubmitButton).toBeVisible();
+  }
+
+  validateFormFieldsAreNotOverlapped = async () => {
+    const locatorFormFields = await this.locatorForm.locator('input').all();
+
+    for(const field of locatorFormFields){
+      await expect(field.evaluate(node => (node as HTMLElement).offsetParent !== null)).toBe(true);
+    }
   }
 
 }

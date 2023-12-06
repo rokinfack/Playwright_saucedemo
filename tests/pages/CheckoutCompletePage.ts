@@ -27,14 +27,14 @@ export class CheckoutCompletePage extends BasePage{
     this.locatorHomeButton = this.page.getByRole('button', {name: 'Back Home'});
   }
   
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorCheckoutImg).toBeVisible();
     await expect(this.locatorHeading).toBeVisible();
     await expect(this.locatorDescription).toBeVisible();
     await expect(this.locatorHomeButton).toBeVisible();
 
-    await this.footer.validateDefaultUX();
-    await this.header.validateDefaultUX();
+    await this.footer.validateDefaultLayout();
+    await this.header.validateDefaultLayout();
   }
 
   backHome = async () => {

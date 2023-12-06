@@ -30,7 +30,7 @@ export class InventoryPage extends BasePage{
     }
   }
 
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorHeaderFilterSelect).toBeVisible();
     await expect(this.locatorHeaderTitle).toBeVisible();
     
@@ -38,8 +38,8 @@ export class InventoryPage extends BasePage{
       await item.validateDefaultUX ();
     }
 
-    await this.header.validateDefaultUX();
-    await this.footer.validateDefaultUX();
+    await this.header.validateDefaultLayout();
+    await this.footer.validateDefaultLayout();
   }
 
   sort = async (sort: SortOptions) => {

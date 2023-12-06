@@ -20,6 +20,18 @@ export abstract class BasePage {
     await this.page.waitForLoadState('networkidle')
   }
 
-  abstract validateDefaultUX();
+  abstract validateDefaultLayout();
+
+  validateViewportResize = async () => {
+    for (let width = this.page.viewportSize()!.width; width >= 320; width -= 320) {
+      await this.page.setViewportSize({ width, height: this.page.viewportSize()!.height });
+      
+      const screenWidth = await this.page.evaluate(() => {
+        return document.documentElement.clientWidth;
+      });
+
+      expect(screenWidth).toBe(width);
+    }
+  }
 
 }

@@ -21,13 +21,6 @@ test.beforeEach(async ({page}) => {
 
 })
 
-test.describe('Cart UX', () => {
-
-  test('Should have default UX', async () => {
-    await cartPage.validateDefaultUX();
-  })
-});
-
 test.describe('Cart features', () => {
 
   test('Should remove item and decrease cart counter', async () => {

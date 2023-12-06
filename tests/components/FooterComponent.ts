@@ -19,7 +19,7 @@ export class FooterComponent {
     this.locatorLinkedinLink = this.locatorFooter.getByRole('link', { name: 'Linkedin' });
   }
 
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorCopyRights).toBeVisible();
     await expect(this.locatorTwitterLink).toBeVisible();
     await expect(this.locatorFacebookLink).toBeVisible();

@@ -21,7 +21,7 @@ export class LoginPage extends BasePage{
 
   }
 
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.page.getByText('Swag Labs')).toBeVisible();
 
     await expect(this.locatorUserNameList).toBeVisible();
@@ -29,10 +29,10 @@ export class LoginPage extends BasePage{
     await expect(this.locatorPasswordList).toBeVisible();
     await expect(this.locatorPasswordList).toContainText(this.passwordForAll);
 
-    await this.formComponent.validateDefaultUx();
+    await this.formComponent.validateDefaultLayout();
   }
 
-  validateErrorUX = async () => {
+  validateErrorLayout = async () => {
     await expect(this.page.getByText('Swag Labs')).toBeVisible();
     
     await expect(this.locatorUserNameList).toBeVisible();
@@ -40,6 +40,6 @@ export class LoginPage extends BasePage{
     await expect(this.locatorPasswordList).toBeVisible();
     await expect(this.locatorPasswordList).toContainText(this.passwordForAll);
     
-    await this.formComponent.validateErrorUX();
+    await this.formComponent.validateErrorLayout();
   }
 }

@@ -17,14 +17,14 @@ export class CheckoutStepOnePage extends BasePage{
     this.form = new CheckoutFormComponent(this.page);
   }
   
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorHeaderTitle).toBeVisible();
     await expect(this.locatorCancelButton).toBeVisible();
-    await this.form.validateDefaultUx();
+    await this.form.validateDefaultLayout();
   }
 
-  validateErrorUX = async () => {
-    await this.form.validateErrorUX();
+  validateErrorLayout = async () => {
+    await this.form.validateErrorLayout();
   }
 
   cancel = async () => {

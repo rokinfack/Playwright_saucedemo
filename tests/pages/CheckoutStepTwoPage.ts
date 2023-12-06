@@ -51,7 +51,7 @@ export class CheckoutStepTwoPage extends BasePage{
     this.locatorFinishButton = this.page.getByRole('button', { name: 'Finish'});
   }
   
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorHeaderTitle).toBeVisible();
     await expect(this.locatorQty).toBeVisible();
     await expect(this.locatorDescription).toBeVisible();
@@ -66,8 +66,8 @@ export class CheckoutStepTwoPage extends BasePage{
     await expect(this.locatorCancelButton).toBeVisible();
     await expect(this.locatorFinishButton).toBeVisible();
 
-    await this.footer.validateDefaultUX();
-    await this.header.validateDefaultUX();
+    await this.footer.validateDefaultLayout();
+    await this.header.validateDefaultLayout();
     
     for(const product of this.products){
       await product.validateDefaultUX();

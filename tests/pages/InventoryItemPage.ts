@@ -33,7 +33,7 @@ export class InventoryItemPage extends BasePage{
     this.header = new HeaderComponent(this.page);
   }
   
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorProductPhoto).toBeVisible();
     await expect(this.locatorProductTitle).toBeVisible();
     await expect(this.locatorProductDescription).toBeVisible();
@@ -41,11 +41,11 @@ export class InventoryItemPage extends BasePage{
     await expect(this.locatorAddCartButton).toBeVisible();
     await expect(this.locatorRemoveCartButton).not.toBeVisible();
     await expect(this.locatorHeaderBackButton).toBeVisible();
-    this.footer.validateDefaultUX();
-    this.header.validateDefaultUX();
+    this.footer.validateDefaultLayout();
+    this.header.validateDefaultLayout();
   }
   
-  validateRemoveUX = async () => {
+  validateRemoveLayout = async () => {
     await expect(this.locatorProductPhoto).toBeVisible();
     await expect(this.locatorProductTitle).toBeVisible();
     await expect(this.locatorProductDescription).toBeVisible();
@@ -54,8 +54,8 @@ export class InventoryItemPage extends BasePage{
     await expect(this.locatorAddCartButton).not.toBeVisible();
     await expect(this.locatorHeaderBackButton).toBeVisible();
     
-    this.footer.validateDefaultUX();
-    this.header.validateDefaultUX();
+    this.footer.validateDefaultLayout();
+    this.header.validateDefaultLayout();
   }
 
   addToCart = async () => {

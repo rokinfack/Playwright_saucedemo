@@ -100,50 +100,74 @@ export default defineConfig({
     //   dependencies: ['setup'],
     // },
     {
-      name: 'visual',
+      name: 'visual on Desktop Chrome',
       testMatch: '**/visual/*.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
       }
     },
-
-    // {
-    //   name: 'firefox',
-    //   use: { 
-    //     ...devices['Desktop Firefox'], 
-    //     storageState: STORAGE_STATE_DEFAULT_USER
-    //   },
-    //   dependencies: ['setup'],
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: { 
-    //     ...devices['Desktop Safari'],
-    //     storageState: STORAGE_STATE_DEFAULT_USER
-    //    },
-    //   dependencies: ['setup'],
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: 'visual on Pixel 5',
+      testMatch: '**/visual/*.spec.ts',
+      use: {
+        ...devices['Pixel 5'],
+      }
+    },
+    {
+      name: 'visual on iPhone 12',
+      testMatch: '**/visual/*.spec.ts',
+      use: {
+        ...devices['iPhone 12'],
+      }
+    },
+    /* UI Test */
+    {
+      name: 'UI on Desktop Chrome',
+      testMatch: '**/ui/*.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE_DEFAULT_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'UI on Desktop Firefox',
+      testMatch: '**/ui/*.spec.ts',
+      use: {
+        ...devices['Desktop Firefox'],
+        storageState: STORAGE_STATE_DEFAULT_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'UI on Desktop Safari',
+      testMatch: '**/ui/*.spec.ts',
+      use: {
+        ...devices['Desktop Safari'],
+        storageState: STORAGE_STATE_DEFAULT_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'UI on Pixel 5',
+      testMatch: '**/ui/*.spec.ts',
+      grepInvert: /@responsive/,
+      use: {
+        ...devices['Pixel 5'],
+        storageState: STORAGE_STATE_DEFAULT_USER
+      },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'UI on Iphone 12',
+      testMatch: '**/ui/*.spec.ts',
+      grepInvert: /@responsive/,
+      use: {
+        ...devices['iPhone 12'],
+        storageState: STORAGE_STATE_DEFAULT_USER
+      },
+      dependencies: ['setup'],
+    }
   ],
 
   /* Run your local dev server before starting the tests */

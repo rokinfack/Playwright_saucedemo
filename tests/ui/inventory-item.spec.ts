@@ -17,24 +17,24 @@ test.beforeEach(async ({page}) => {
   await inventoryPage.items[PROD_INDEX_IN_CART].addToCart();
 });
 
-test.describe('Inventory Item features', async () => {
-  test('Should add to cart and update cart counter', async () => {
+test.describe('Inventory Item UI', () => {
+  test('Viewport should resize correctly @responsive', async () => {
+    await inventoryItemPage.validateViewportResize();
+  })
+
+  test('Should have default Layout when accessing a product that is not added', async () => {
     await inventoryPage.items[PROD_INDEX_OUT_CART].openDetailsClickingOnPhoto();
-    await inventoryItemPage.header.cartCounter(1);
-    await inventoryItemPage.addToCart();
-    await inventoryItemPage.header.cartCounter(2);
+    await inventoryItemPage.validateDefaultLayout();
+
+
   });
 
-  test('Should remove from cart and update cart counter', async () => {
+  test('Should have Remove-Layout when accessing a product that is added', async () => {
     await inventoryPage.items[PROD_INDEX_IN_CART].openDetailsClickingOnPhoto();
-    await inventoryItemInPage.header.cartCounter(1);
-    await inventoryItemInPage.removeFromCart();
-    await inventoryItemInPage.header.cartCounter(0);
+    await inventoryItemInPage.validateRemoveLayout();
   });
 
-  test('Should return to Inventory page', async () => {
-    await inventoryPage.items[PROD_INDEX_IN_CART].openDetailsClickingOnPhoto();
-    await inventoryItemInPage.backToProducts();
-    await inventoryPage.toBe();
+  test('Viewport should resize correctly', async () => {
+    await inventoryItemInPage.validateViewportResize();
   })
 });

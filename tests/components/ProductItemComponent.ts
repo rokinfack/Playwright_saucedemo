@@ -36,7 +36,7 @@ export class ProductItemComponent {
     await expect(this.locatorRemoveCartButton).toBeVisible();    
   }
 
-  validateAddUX =async () => {
+  validateAddLayout =async () => {
     await expect(this.locatorRemoveCartButton).not.toBeVisible();
     await expect(this.locatorAddCartButton).toBeVisible();
   }

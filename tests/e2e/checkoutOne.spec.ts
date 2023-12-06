@@ -29,34 +29,6 @@ test.beforeEach(async ({page})=> {
   await cartPage.checkout();
 })
 
-test.describe('Checkout Step One UX', () => {
-  test('Should have default UX', async () => {
-    await checkoutOnePage.validateDefaultUX();
-  })
-
-  test('Should have Error UX on invalid form', async () => {
-    await checkoutOnePage.form.submit();
-    await checkoutOnePage.validateErrorUX();
-  })
-});
-
-test.describe('Checkout Step Two UX', () => {
-  test('Should have default UX', async () => {
-    await checkoutOnePage.form.fill(dataCheckout.success);
-    await checkoutOnePage.form.submit();
-    await checkoutTwoPage.validateDefaultUX();
-  })
-});
-
-test.describe('Checkout Complete UX', () => {
-  test('Should have default UX', async () => {
-    await checkoutOnePage.form.fill(dataCheckout.success);
-    await checkoutOnePage.form.submit();
-    await checkoutTwoPage.finish();
-    await checkoutCompletePage.validateDefaultUX();
-  })
-});
-
 test.describe('Checkout features', () => {
   test('Should checkout and go back home', async ({page}) => {
     await checkoutOnePage.form.fill(dataCheckout.success);
@@ -84,28 +56,28 @@ test.describe('Checkout features', () => {
   test('Should not checkout with empty form', async () => {
     await checkoutOnePage.form.fill(dataCheckout.empty);
     await checkoutOnePage.form.submit();
-    await checkoutOnePage.validateErrorUX();
+    await checkoutOnePage.validateErrorLayout();
     await checkoutOnePage.form.errorComponent.hasMessage('First Name is required');
   });
 
   test('Should not checkout without first name', async () => {
     await checkoutOnePage.form.fill(dataCheckout.empty_firstName);
     await checkoutOnePage.form.submit();
-    await checkoutOnePage.validateErrorUX();
+    await checkoutOnePage.validateErrorLayout();
     await checkoutOnePage.form.errorComponent.hasMessage('First Name is required');
   });
 
   test('Should not checkout without last name', async () => {
     await checkoutOnePage.form.fill(dataCheckout.empty_lastName);
     await checkoutOnePage.form.submit();
-    await checkoutOnePage.validateErrorUX();
+    await checkoutOnePage.validateErrorLayout();
     await checkoutOnePage.form.errorComponent.hasMessage('Last Name is required');
   });
 
   test('Should not checkout without zip code', async () => {
     await checkoutOnePage.form.fill(dataCheckout.empty_zipCode);
     await checkoutOnePage.form.submit();
-    await checkoutOnePage.validateErrorUX();
+    await checkoutOnePage.validateErrorLayout();
     await checkoutOnePage.form.errorComponent.hasMessage('Postal Code is required');
   });
 

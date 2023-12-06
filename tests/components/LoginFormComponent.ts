@@ -19,7 +19,7 @@ export class LoginFormComponent extends FormComponent {
     await this.locatorPasswordInput.fill(data.password);
   }
 
-  override validateErrorUX = async (): Promise<void> => {
+  override validateErrorLayout = async (): Promise<void> => {
     await expect(this.locatorSubmitButton).toHaveText('Login');  
 
     await expect(this.locatorUsernameInput).toBeVisible();
@@ -32,10 +32,10 @@ export class LoginFormComponent extends FormComponent {
     await expect(this.locatorPasswordInput).toHaveAttribute('placeholder', 'Password', {ignoreCase: false});
     await expect(this.locatorPasswordInput).toHaveClass(/\berror\b/);
 
-    super.validateErrorUX(); 
+    super.validateErrorLayout(); 
   }
 
-  override validateDefaultUx = async (): Promise<void> => {
+  override validateDefaultLayout = async (): Promise<void> => {
     await expect(this.locatorSubmitButton).toHaveText('Login');  
     
     await expect(this.locatorUsernameInput).toBeVisible();
@@ -49,7 +49,7 @@ export class LoginFormComponent extends FormComponent {
     await expect(this.locatorPasswordInput).toHaveAttribute('placeholder', 'Password', {ignoreCase: false});
     await expect(this.locatorPasswordInput).not.toHaveClass(/\berror\b/);
 
-    return super.validateDefaultUx();
+    return super.validateDefaultLayout();
   }
   
 }

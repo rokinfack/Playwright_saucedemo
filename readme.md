@@ -1,7 +1,12 @@
 # Playwright E2E Testing Project for saucedemo.com
 
 Hello! This is my E2E testing project for [soucedemo.com](soucedemo.com) using Playwright and TypeScript! I developed this project as part of my learning journey in test automation.
-Check the [test report](ecureuill.github.io/saucedemo-playwright)
+
+The workflow, defined in the `.github/workflows/playwright.yml` file, executes Playwright tests on specified browsers and operating systems. After the test execution, Playwright generates a comprehensive report detailing both passed and failed scenarios. The GitHub Actions workflow is set up to automatically publish this Playwright test report to GitHub Pages.
+
+This integration ensures that the latest Playwright test results are readily available, providing transparency and visibility into the testing process.
+
+The generated report, showcasing insights into the results of the Playwright tests, is accessible at [ecureuill.github.io/saucedemo-playwright](ecureuill.github.io/saucedemo-playwright).
 
 ## Technologies Used
 
@@ -32,6 +37,9 @@ saucedemo/
 │   ├── e2e/
 │   │   └── login.spec.ts
 │   │   └── ... 
+│   ├── ui/
+│   │   └── login.spec.ts
+│   │   └── ... 
 │   ├── visual/
 │   │   └── visual.spec.ts
 │   └── auth.setup.ts
@@ -45,11 +53,20 @@ saucedemo/
 
 ### 1. End-to-End (E2E) Tests
 
-E2E tests, located in `e2e/`, aim to verify the complete functionality of the application. They cover scenarios such as user authentication, navigation, and interactions with different pages.
+E2E tests, located in `e2e/`, aim to verify the complete functionality of the application. They cover scenarios such as user authentication, navigation, and interactions with different pages. 
+
+Check all scenarios [here](/e2e.md).
 
 ### 2. Visual Snapshot Tests
 
-Visual snapshot tests, in `visual/`, focus on ensuring visual consistency across different test runs. They use Playwright's screenshot capabilities to compare and verify changes in the interface.
+Visual snapshot tests, located in the `visual/` directory, play a crucial role in ensuring the visual consistency of the application across various test runs. Leveraging Playwright's powerful screenshot capabilities, these tests capture valid screenshots while navigating through the site in the context of a `standard_user`. Subsequently, the application's interface is tested against these baseline screenshots, this time with the user logged in as `visual_user`. This comparison process helps identify and verify any changes in the interface, ensuring a consistent and visually appealing user experience.
+
+### 2. User Interface (UI) Tests
+
+The UI tests, located in the `ui/` directory, are designed to scrutinize essential aspects such as usability, layout integrity, responsiveness, and the visual aesthetics of the application. In this initial version, responsiveness is assessed by simulating window resizing, and the integrity of the layout is validated. In upcoming versions, the testing scope will be expanded to delve deeper into these initiated aspects, while also addressing additional facets for a more comprehensive evaluation of the application's user interface. 
+
+Check all scenarios [here](/ui.md).
+
 
 ## Page Objects and Componentization
 

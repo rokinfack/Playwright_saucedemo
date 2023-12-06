@@ -19,7 +19,7 @@ export class MenuComponent {
     this.locatorResetLink = this.locatorMenuNav.getByRole('link', { name: 'Reset App State' });
     this.locatorLogoutLink = this.locatorMenuNav.getByRole('link', { name: 'Logout' });
   }
-  validateDefaultUX = async () => {
+  validateDefaultLayout = async () => {
     await expect(this.locatorMenuNav).toBeVisible();
     await expect(this.locatorCloseMenuButton).toBeVisible();
     await expect(this.locatorAllItemsLink).toBeVisible();

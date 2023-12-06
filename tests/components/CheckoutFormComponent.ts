@@ -23,7 +23,7 @@ export class CheckoutFormComponent extends FormComponent {
     await this.locatorZipCodeInput.fill(data.zipCode);
   }
 
-  override validateErrorUX = async (): Promise<void> => {
+  override validateErrorLayout = async (): Promise<void> => {
       await expect(this.locatorSubmitButton).toHaveText('Continue');
 
       await expect(this.locatorFirstNameInput).toBeVisible();
@@ -41,10 +41,10 @@ export class CheckoutFormComponent extends FormComponent {
       await expect(this.locatorZipCodeInput).toHaveAttribute('placeholder', 'Zip/Postal Code');
       await expect(this.locatorZipCodeInput).toHaveClass(/\berror\b/);
 
-      return super.validateErrorUX(); 
+      return super.validateErrorLayout(); 
   }
 
-  override validateDefaultUx = async (): Promise<void> => {
+  override validateDefaultLayout = async (): Promise<void> => {
       await expect(this.locatorSubmitButton).toHaveText('Continue');
 
       await expect(this.locatorFirstNameInput).toBeVisible();
@@ -62,7 +62,7 @@ export class CheckoutFormComponent extends FormComponent {
       await expect(this.locatorZipCodeInput).toHaveAttribute('placeholder', 'Zip/Postal Code');
       await expect(this.locatorZipCodeInput).not.toHaveClass(/\berror\b/);
 
-      return super.validateDefaultUx(); 
+      return super.validateDefaultLayout(); 
   }
   
 }

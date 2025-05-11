@@ -15,14 +15,14 @@ pipeline {
         stage('Remove Docker Images') {
             steps {
                 sh 'docker images'
-                sh 'docker rmi "${DOCKER_IMAGE}" || true'
+                sh "docker rmi ${DOCKER_IMAGE} || true"
                 sh 'yes | docker buildx prune -a'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --no-cache -t "${DOCKER_IMAGE}" .'
+                sh "docker build --no-cache -t ${DOCKER_IMAGE} ."
             }
         }
 
@@ -42,12 +42,29 @@ pipeline {
                     steps {
                         script {
                             docker.image("${DOCKER_IMAGE}").inside("-u root") {
-                                sh 'npm test'
+                                sh 'npx playwright test --project=firefox'
                             }
                         }
                     }
                 }
-                // Tu peux ajouter ici d'autres navigateurs comme Chrome ou Edge en parallèle si nécessaire.
+                stage('Run with Chrome') {
+                    steps {
+                        script {
+                            docker.image("${DOCKER_IMAGE}").inside("-u root") {
+                                sh 'npx playwright test --project=chromium'
+                            }
+                        }
+                    }
+                }
+                stage('Run with Edge') {
+                    steps {
+                        script {
+                            docker.image("${DOCKER_IMAGE}").inside("-u root") {
+                                sh 'npx playwright test --project=edge'
+                            }
+                        }
+                    }
+                }
             }
         }
 
